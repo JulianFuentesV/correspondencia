@@ -1,0 +1,101 @@
+body {
+	height: 100%;
+	width: 100;
+	margin: 0;
+	padding: 0;
+	background: rgb(11,40,116);
+}
+
+/* >>> IDS <<< */
+
+#red-container {
+	background: rgb(204,0,1);
+	border-radius: 20px;
+	padding: 10px;
+}
+
+#darkRed-container {
+	background: rgb(170,0,0);
+	border-radius: 20px;
+	padding: 20px;
+}
+
+#white-container {
+	background: rgb(255,255,255);
+	border-radius: 20px;
+	padding: 20px;
+}
+
+#btn-circle {
+	border-radius: 10px;
+}
+
+/* >>> END IDS <<< */
+
+/* >>> CLASS <<< */
+
+/* IMAGES */
+
+.img {
+	max-width: 120px;
+	max-height: 120px;
+}
+
+/* END IMAGES*/
+
+/* MARGIN */
+
+.automargin {
+	margin: auto;
+}
+
+.margin-bottom {
+	margin-bottom: 30px;
+}
+
+.margin-top {
+	margin-top: 30px;
+}
+
+.margin-left-sm {
+	margin-left: 10px;
+}
+
+.margin-right-sm {
+	margin-right: 10px;
+}
+
+/* END MARGIN */
+
+/* PADDING */
+
+.padding {
+	padding: 20px;
+}
+
+.padding-left-sm {
+	padding-left: 10px;
+}
+
+.padding-right-sm {
+	padding-right: 10px;
+}
+
+/* END PADDING */
+
+/* FONTS */
+
+.white-font {
+	color: #fff;
+}
+
+.blue-font {
+	color: rgb(11,40,116);
+}
+
+.title-font {
+	font-family: "Vegur", "Arial Narrow", Arial, sans-serif;
+
+/* END FONTS */
+
+/* >>> END CLASS <<< */
