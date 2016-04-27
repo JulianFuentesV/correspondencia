@@ -34,7 +34,7 @@
 								</br>
 								<input type="password" placeholder="contraseña" name="pass" class="form-control"></input>
 								</br>
-								<input type="submit" value="Acceder" class="btn btn-default"></input>
+								<input type="submit" value="Acceder" class="btn btn-default blue-font"></input>
 							</form>
 						</div>
 					</td>

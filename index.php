@@ -32,7 +32,7 @@
 				<tr>
 					<td colspan="2">
 						<div id="white-container">
-							<h2 class="text-center title-font blue-font">BIENVENIDOS</h2>
+							<h2 class="text-center title-font blue-font">DOCUMENTOS RECIENTES</h2>
 							<div class="text-right">
 								<hr>
 								<a id="btn-circle" href="nuevo.php" class="btn btn-default">
@@ -48,21 +48,45 @@
 									$con = mysqli_connect($host, $user, $pw, $db);
 									$con->set_charset("utf8");
 									$documents = mysqli_query($con, "SELECT * FROM documents ORDER BY id DESC LIMIT 15") or die ("prob_query: ".mysql_error());
-									?>
-									<table>
-									<th class="text-center">Fecha</th>
-									<th class="text-center">Remitente</th>
-									<th class="text-center">Asunto</th>
+								?>
+								<form method="POST" action="documento.php">
+								<table>
+									<th class="text-center padding-sm">Fecha</th>
+									<th class="text-center padding-sm">Remitente</th>
+									<th class="text-center padding-sm">Asunto</th>
+									<th class="text-center padding-sm">Accion</th>
 									<?php
 									while ($doc = mysqli_fetch_array($documents)) {
 									?>
-										<tr>
-											<td><?php echo $doc['fechaIngreso']; ?></td>
-											<td class="padding-left-sm"><?php echo $doc['nombreRemitente']; ?></td>
-											<td class="padding-left-sm"><?php echo $doc['asunto']; ?></td>
+										<tr id="doc">
+											<td class="padding-left-sm">
+												<?php echo $doc['fechaIngreso']; ?>
+											</td>
+											<td class="padding-left-sm">
+												<?php
+													if (strlen($doc['nombreRemitente']) > 25) {
+														echo substr($doc['nombreRemitente'],0,25)."...";
+													} else {
+														echo substr($doc['nombreRemitente'],0,25);
+													}
+												?>
+											</td>
+											<td class="padding-sm">
+												<?php
+													if (strlen($doc['asunto']) > 50) {
+														echo substr($doc['asunto'],0,50)."<BR>".substr($doc['asunto'],50,50)."...";
+													} else {
+														echo substr($doc['asunto'],0,50);
+													}
+												?>
+											</td>
+											<td class="text-center">
+												<button id="btn-circle" class="btn btn-default blue-font" name="ver" value=<?php echo $doc['id'];?> >Ver</button>
+											</td>
 										</tr>
 									<?php } ?>
 								</table>
+								</form>
 							</div>
 						</div>
 					</td>

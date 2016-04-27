@@ -28,5 +28,5 @@
 
 			mysql_query("INSERT INTO documents (dia, mes, anio, fechaIngreso, ventanillaUnica, nombreRemitente, numOficio, numAnexos, asunto, areaDestino, nombreReceptor, responsableRpta, destinoRpta, nombreMensajero) VALUES ('$dia','$mes','$anio','$fechaIngreso','$ventanillaUnica','$nombreRemitente','$numOficio','$numAnexos','$asunto','$areaDestino','$nombreReceptor','$responsableRpta','$destinoRpta','$nombreMensajero')", $con) or die ("pro_insert_db");
 
-	echo "Correcto";
+	header("Location: index.php");
 ?>

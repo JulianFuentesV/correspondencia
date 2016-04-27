@@ -6,6 +6,11 @@ body {
 	background: rgb(11,40,116);
 }
 
+#doc:hover {
+	background: #DDD;
+	color: rgb(11,40,116);
+}
+
 /* >>> IDS <<< */
 
 #red-container {
@@ -24,6 +29,7 @@ body {
 	background: rgb(255,255,255);
 	border-radius: 20px;
 	padding: 20px;
+	margin-bottom: 30px;
 }
 
 #btn-circle {
@@ -71,6 +77,22 @@ body {
 
 .padding {
 	padding: 20px;
+}
+
+.padding-lg {
+	padding: 60px;
+}
+
+.padding-right-lg {
+	padding-right: 60px;
+}
+
+.padding-left-lg {
+	padding-left: 60px;
+}
+
+.padding-sm {
+	padding: 10px;
 }
 
 .padding-left-sm {
