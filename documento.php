@@ -40,32 +40,46 @@
 				<tr>
 					<td colspan="2">
 						<div id="white-container">
-							<?php 
-								while ($doc = mysqli_fetch_array($documents)) 
-								{ 
-							?>
-									<h2 class="title-font">Fecha de ingreso: <?php echo $doc['fechaIngreso']."<BR>";?></h2>
-									<h3 class="title-font">N° de ventanilla única:</h3>
-									<p class="text-justify"><?php echo $doc['ventanillaUnica'];?></p>
-									<h3 class="title-font">Nombre del remitente</h3>
-									<p class="text-justify"><?php echo $doc['nombreRemitente'];?></p>
-									<h3 class="title-font">N° de oficio</h3>
-									<p class="text-justify"><?php echo $doc['numOficio'];?></p>
-									<h3 class="title-font">N° de anexos</h3>
-									<p class="text-justify"><?php echo $doc['numAnexos'];?></p>
-									<h3 class="title-font">Asunto</h3>
-									<p class="text-justify"><?php echo $doc['asunto'];?></p>
-									<h3 class="title-font">Area de destino</h3>
-									<p class="text-justify"><?php echo $doc['areaDestino'];?></p>
-									<h3 class="title-font">Nombre de quien recibe</h3>
-									<p class="text-justify"><?php echo $doc['nombreReceptor'];?></p>
-									<h3 class="title-font">Responsable de la respuesta</h3>
-									<p class="text-justify"><?php echo $doc['responsableRpta'];?></p>
-									<h3 class="title-font">Destino para respuesta del documento</h3>
-									<p class="text-justify"><?php echo $doc['destinoRpta'];?></p>
-									<h3 class="title-font">Nombre del mensajero que recibe</h3>
-									<p class="text-justify"><?php echo $doc['nombreMensajero'];?></p>
-							<?php } ?>
+							<div class="pull-right">
+								<?php 
+									while ($doc = mysqli_fetch_array($documents)) 
+									{ 
+								?>
+								<form method="POST" action="edit.php">
+									<button id="btn-circle" class="btn btn-default" name="edit" value=<?php echo $doc['id'] ?>>
+										<img src="imgs/edit.png">
+									</button>
+								</form>
+								<form method="POST" action="delete.php">
+									<button id="btn-circle" class="btn btn-default" name="delete" value=<?php echo $doc['id'] ?>>
+										<img src="imgs/delete.png">
+									</button>
+								</form>
+							</div>
+							<div>
+								<h2 class="title-font">Fecha de ingreso: <?php echo $doc['fechaIngreso']."<BR>";?></h2>
+								<h3 class="title-font">N° de ventanilla única:</h3>
+								<p class="text-justify"><?php echo $doc['ventanillaUnica'];?></p>
+								<h3 class="title-font">Nombre del remitente</h3>
+								<p class="text-justify"><?php echo $doc['nombreRemitente'];?></p>
+								<h3 class="title-font">N° de oficio</h3>
+								<p class="text-justify"><?php echo $doc['numOficio'];?></p>
+								<h3 class="title-font">N° de anexos</h3>
+								<p class="text-justify"><?php echo $doc['numAnexos'];?></p>
+								<h3 class="title-font">Asunto</h3>
+								<p class="text-justify"><?php echo $doc['asunto'];?></p>
+								<h3 class="title-font">Area de destino</h3>
+								<p class="text-justify"><?php echo $doc['areaDestino'];?></p>
+								<h3 class="title-font">Nombre de quien recibe</h3>
+								<p class="text-justify"><?php echo $doc['nombreReceptor'];?></p>
+								<h3 class="title-font">Responsable de la respuesta</h3>
+								<p class="text-justify"><?php echo $doc['responsableRpta'];?></p>
+								<h3 class="title-font">Destino para respuesta del documento</h3>
+								<p class="text-justify"><?php echo $doc['destinoRpta'];?></p>
+								<h3 class="title-font">Nombre del mensajero que recibe</h3>
+								<p class="text-justify"><?php echo $doc['nombreMensajero'];?></p>
+								<?php } ?>
+							</div>
 						</div>
 					</td>
 				</tr>

@@ -5,6 +5,21 @@
 	if ($ses != "ok") {
 		header("Location: login.php");
 	}
+
+	$meses = array("cero","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
+	$f = $_REQUEST['fecha'];
+	$dia = substr($f, 8, 2);
+	$mes = $meses[0 + substr($f, 5, 2)];
+	$anio = substr($f, 0, 4);
+	$fecha = $dia." - ".$mes." - ".$anio;
+	$nomRemitente = $_REQUEST['remitente'];
+	$areaDestino = $_REQUEST['destino'];
+
+	include ("conexion.php");
+	$con = mysqli_connect($host, $user, $pw, $db);
+	$con->set_charset("utf8");
+	$documents = mysqli_query($con, "SELECT * FROM documents WHERE fechaIngreso LIKE '%$fecha%' AND nombreRemitente LIKE '%$nomRemitente%' AND areaDestino LIKE '%$areaDestino%'") or die ("prob_query: ");
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,41 +31,29 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
+		<div class="row padding-right-lg padding-left-lg">
 			<table class="automargin margin-top">
 				<tr>
-					<td><img src="imgs/unicauca.png" class="padding"></td>
+					<td><a href="index.php"><img src="imgs/unicauca.png" class="padding"></a></td>
 					<td class="text-center">
+					<a href="index.php">
 						<div id="red-container">
 							<div id="darkRed-container">
 								<h1 class="white-font title-font">Facultad de Ciencias de la Salud</h1>
 								<h2 class="white-font title-font">Control de correspondencia</h2>
 							</div>
 						</div>
+					</a>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<div id="white-container">
-							<h2 class="text-center title-font blue-font">DOCUMENTOS RECIENTES</h2>
+							<h2 class="text-center title-font blue-font">RESULTADOS</h2>
 							<hr>
-							<div class="text-right">
-								<a id="btn-circle" href="nuevo.php" class="btn btn-default">
-									<img src="imgs/add.png">
-								</a>
-								<a id="btn-circle" href="buscar.php" class="btn btn-default">
-									<img src="imgs/search.png">
-								</a>
-							</div>
 							<div>
-								<?php
-									include ("conexion.php");
-									$con = mysqli_connect($host, $user, $pw, $db);
-									$con->set_charset("utf8");
-									$documents = mysqli_query($con, "SELECT * FROM documents ORDER BY id DESC LIMIT 15") or die ("prob_query: ".mysql_error());
-								?>
 								<form method="POST" action="documento.php">
-								<table>
+								<table class="automargin">
 									<th class="text-center padding-sm">Fecha</th>
 									<th class="text-center padding-sm">Remitente</th>
 									<th class="text-center padding-sm">Asunto</th>
@@ -89,13 +92,11 @@
 								</form>
 							</div>
 						</div>
+						</div>
 					</td>
 				</tr>
 			</table>
 		</div>
 	</div>
-	
-		
-	
 </body>
 </html>

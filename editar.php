@@ -1,6 +1,7 @@
 <?php
 	header("Content-Type: text/html;charset=utf-8");
 	session_start();
+	$id = $_SESSION['id'];
 	$fechaIngreso = $_SESSION['fecha'];
 	$dia = $_SESSION['dia'];
 	$mes = $_SESSION['mes'];
@@ -18,9 +19,12 @@
 
 	include("conexion.php");
 
-	$con = mysqli_connect ($host, $user, $pw, $db) or die ("Pro_server");
+	$con = mysqli_connect ($host, $user, $pw, $db);
 	$con->set_charset("utf8");
-	$document = mysqli_query($con, "INSERT INTO documents (dia, mes, anio, fechaIngreso, ventanillaUnica, nombreRemitente, numOficio, numAnexos, asunto, areaDestino, nombreReceptor, responsableRpta, destinoRpta, nombreMensajero) VALUES ('$dia','$mes','$anio','$fechaIngreso','$ventanillaUnica','$nombreRemitente','$numOficio','$numAnexos','$asunto','$areaDestino','$nombreReceptor','$responsableRpta','$destinoRpta','$nombreMensajero')") or die ("pro_insert_db");
+	echo $id;
+	echo $nombreMensajero;
 
+	$update = mysqli_query($con, "UPDATE documents SET dia = '$dia', mes = '$mes', anio = '$anio', fechaIngreso = '$fechaIngreso', ventanillaUnica = '$ventanillaUnica', nombreRemitente = '$nombreRemitente', numOficio = '$numOficio', numAnexos = '$numAnexos', asunto = '$asunto', areaDestino = '$areaDestino', nombreReceptor = '$nombreReceptor', responsableRpta = '$responsableRpta', destinoRpta = '$destinoRpta', nombreMensajero = '$nombreMensajero' WHERE id = '$id'") or die ("pro_insert_db");
+	
 	header("Location: index.php");
 ?>
