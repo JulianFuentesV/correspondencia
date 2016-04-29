@@ -36,13 +36,13 @@
 						<div id="white-container">
 							<h2 class="text-center title-font blue-font">BUSCAR DOCUMENTO</h2><hr>
 							<form method="POST" action="encontrar.php">
-								<h3 class="title-font blue-font" style="display: inline-block;">Buscar por fecha:</h3>
-								<input type="date" name="fecha" class="form-control"></input>
+								<h3 class="title-font blue-font">Buscar por fecha:</h3>
+								<input type="date" name="fecha" class="form-control" placeholder="aaaa/mm/dd"></input>
 
-								<h3 class="title-font blue-font" style="display: inline-block;">Buscar por remitente:</h3>
+								<h3 class="title-font blue-font">Buscar por remitente:</h3>
 								<input type="text" name="remitente" class="form-control"></input>
 
-								<h3 class="title-font blue-font" style="display: inline-block;">Buscar por area de destino:</h3>
+								<h3 class="title-font blue-font">Buscar por area de destino:</h3>
 								<input type="text" name="destino" class="form-control"></input>
 
 								<br>

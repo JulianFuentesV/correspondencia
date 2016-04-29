@@ -8,11 +8,12 @@
 	$password = $_REQUEST['pass'];
 
 	$con = mysqli_connect($host, $user, $pw, $db);
-	
+	$con->set_charset("utf8");
 	$normal = mysqli_query($con, "SELECT * FROM usuarios WHERE user = '".$usuario."' and password = '".$password."'");
 
 	if ($row = mysqli_fetch_array($normal)) {
 		$_SESSION['logged']="ok";
+		$_SESSION['user']=$usuario;
 		header("Location: index.php");
 		//echo "normal";
 	}else{

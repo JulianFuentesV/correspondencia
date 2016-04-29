@@ -41,6 +41,12 @@
 								<a id="btn-circle" href="buscar.php" class="btn btn-default">
 									<img src="imgs/search.png">
 								</a>
+								<a id="btn-circle" href="print.php" class="btn btn-default">
+									<img src="imgs/printer.png">
+								</a>
+								<a id="btn-circle" href="login.php" class="btn btn-default">
+									<img src="imgs/logout.png">
+								</a>
 							</div>
 							<div>
 								<?php
