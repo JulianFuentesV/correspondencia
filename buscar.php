@@ -39,6 +39,9 @@
 								<h3 class="title-font blue-font">Buscar por fecha:</h3>
 								<input type="date" name="fecha" class="form-control" placeholder="aaaa/mm/dd"></input>
 
+								<h3 class="title-font blue-font">Buscar por N° de ventanilla única:</h3>
+								<input type="text" name="ventanilla" class="form-control"></input>
+
 								<h3 class="title-font blue-font">Buscar por remitente:</h3>
 								<input type="text" name="remitente" class="form-control"></input>
 

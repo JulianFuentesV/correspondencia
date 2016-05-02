@@ -13,13 +13,21 @@
 	$mes = $meses[0 + substr($f, 5, 2)];
 	$anio = substr($f, 0, 4);
 	$fecha = $dia." - ".$mes." - ".$anio;
+	$ventanilla = $_REQUEST['ventanilla'];
 	$nomRemitente = $_REQUEST['remitente'];
 	$areaDestino = $_REQUEST['destino'];
 
 	include ("conexion.php");
 	$con = mysqli_connect($host, $user, $pw, $db);
 	$con->set_charset("utf8");
-	$documents = mysqli_query($con, "SELECT * FROM documents WHERE fechaIngreso LIKE '%$fecha%' AND nombreRemitente LIKE '%$nomRemitente%' AND areaDestino LIKE '%$areaDestino%'") or die ("prob_query: ");
+
+	$longFecha = strlen($f);
+
+	if ($longFecha == 0) {
+		$documents = mysqli_query($con, "SELECT * FROM documents WHERE ventanillaUnica LIKE '%$ventanilla%' AND nombreRemitente LIKE '%$nomRemitente%' AND areaDestino LIKE '%$areaDestino%'") or die ("prob_query: ");
+	} else {
+		$documents = mysqli_query($con, "SELECT * FROM documents WHERE fechaIngreso LIKE '%$fecha%' AND ventanillaUnica LIKE '%$ventanilla%' AND nombreRemitente LIKE '%$nomRemitente%' AND areaDestino LIKE '%$areaDestino%'") or die ("prob_query: ");
+	}
 ?>
 <!DOCTYPE html>
 <html>
