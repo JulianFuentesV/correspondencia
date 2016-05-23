@@ -36,17 +36,26 @@
 						<div id="white-container">
 							<h2 class="text-center title-font blue-font">BUSCAR DOCUMENTO</h2><hr>
 							<form method="POST" action="encontrar.php">
-								<h3 class="title-font blue-font">Buscar por fecha:</h3>
+								<h3 class="title-font blue-font">Por fecha:</h3>
 								<input type="date" name="fecha" class="form-control" placeholder="aaaa/mm/dd"></input>
 
-								<h3 class="title-font blue-font">Buscar por N° de ventanilla única:</h3>
+								<h3 class="title-font blue-font">Por N° de ventanilla única:</h3>
 								<input type="text" name="ventanilla" class="form-control"></input>
 
-								<h3 class="title-font blue-font">Buscar por remitente:</h3>
+								<h3 class="title-font blue-font">Por N° de oficio</h3>
+								<input type="text" name="oficio" class="form-control"></input>
+
+								<h3 class="title-font blue-font">Por remitente:</h3>
 								<input type="text" name="remitente" class="form-control"></input>
 
-								<h3 class="title-font blue-font">Buscar por area de destino:</h3>
+								<h3 class="title-font blue-font">Por area de destino:</h3>
 								<input type="text" name="destino" class="form-control"></input>
+
+								<h3 class="title-font blue-font">Por nombre de quien recibe:</h3>
+								<input type="text" name="nomReceptor" class="form-control"></input>
+
+								<h3 class="title-font blue-font">Por nombre del mensajero:</h3>
+								<input type="text" name="nomMensajero" class="form-control"></input>
 
 								<br>
 								<input type="submit" class="btn btn-default blue-font" value="Buscar"></input>

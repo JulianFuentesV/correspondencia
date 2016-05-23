@@ -65,7 +65,7 @@
 
 								<h3 class="title-font">Nombre del remitente</h3>
 								<textarea type="text" maxlength="150" placeholder="Nombre del remitente" rows="5" cols="45" name="nombreRemitente" class="form-control">
-									<?php echo $doc['nombreRemitente'];?>
+									<?php echo htmlentities($doc['nombreRemitente']);?>
 								</textarea><BR>
 
 								<h3 class="title-font">N° de oficio</h3>
