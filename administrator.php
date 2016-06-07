@@ -70,9 +70,11 @@
 												<?php echo $usuario['email']; ?>
 											</td>
 											<td class="text-center">
-												<button id="btn-circle" class="btn btn-default blue-font" name="deleteUser" value=<?php echo $usuario['id'];?>>
-												<img src="imgs/delete.png">
-												</button>
+												<?php if ($usuario['user'] != "admin") { ?>
+													<button id="btn-circle" class="btn btn-default blue-font" name="deleteUser" value=<?php echo $usuario['id'];?>>
+													<img src="imgs/delete.png">
+													</button>
+												<?php } ?>
 											</td>
 										</tr>
 									<?php } ?>

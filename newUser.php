@@ -10,10 +10,11 @@
 	$newUser = $_REQUEST['newUser'];
 	$newPass = $_REQUEST['newPass'];
 	$newEmail = $_REQUEST['newEmail'];
+	$hash = password_hash($newPass,PASSWORD_BCRYPT);
 
 	include ("conexion.php");
 	$con = mysqli_connect($host, $user, $pw, $db);
 	$con->set_charset("utf8");
-	$usuario = mysqli_query($con, "INSERT INTO usuarios (user, password, email) VALUES ('$newUser', '$newPass', '$newEmail')") or die ("prob_query: ");
+	$usuario = mysqli_query($con, "INSERT INTO usuarios (user, password, email) VALUES ('$newUser', '$hash', '$newEmail')") or die ("prob_query: ");
 	header("Location: administrator.php");
 ?>

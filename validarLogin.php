@@ -9,14 +9,23 @@
 
 	$con = mysqli_connect($host, $user, $pw, $db);
 	$con->set_charset("utf8");
-	$normal = mysqli_query($con, "SELECT * FROM usuarios WHERE user = '".$usuario."' and password = '".$password."'");
+	$normal = mysqli_query($con, "SELECT password FROM usuarios WHERE user = '$usuario'");
 
 	if ($row = mysqli_fetch_array($normal)) {
-		$_SESSION['logged']="ok";
-		$_SESSION['user']=$usuario;
-		header("Location: index.php");
-		//echo "normal";
-	}else{
+
+		if (password_verify($password,$row[0])) {
+			$_SESSION['logged']="ok";
+			$_SESSION['user']=$usuario;
+			header("Location: index.php");
+			//echo "normal";
+		} else {
+			$_SESSION['logged']="no";
+			//header("Location: login.php");
+			//echo "ninguno";
+			echo "PW: ".$password."<BR> HASH: ".$row[0];
+		}
+
+	} else {
 		$_SESSION['logged']="no";
 		header("Location: login.php");
 		//echo "ninguno";
