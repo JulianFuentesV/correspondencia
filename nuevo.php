@@ -5,6 +5,10 @@
 	if ($ses != "ok") {
 		header("Location: login.php");
 	}
+	include ("conexion.php");
+	$con = mysqli_connect($host, $user, $pw, $db);
+	$con->set_charset("utf8");
+	$usuarios = mysqli_query($con, "SELECT * FROM usuarios") or die ("prob_query: ");
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,7 +60,16 @@
 								<input type="text" maxlength="5" placeholder="N° de anexos" name="numAnexos" class="form-control"></input><BR>
 								<textarea type="text" maxlength="300" placeholder="Asunto" rows="8" cols="60" name="asunto" class="form-control"></textarea><BR>
 								<textarea type="text" maxlength="200" placeholder="Area de destino" rows="6" cols="50" name="areaDestino" class="form-control"></textarea><BR>
-								<textarea type="text" maxlength="150" placeholder="Nombre de quien recibe" rows="5" cols="45" name="nombreReceptor" class="form-control"></textarea><BR>
+								<!--<textarea type="text" maxlength="150" placeholder="Nombre de quien recibe" rows="5" cols="45" name="nombreReceptor" class="form-control"></textarea>-->
+								<select class="form-control" name="nombreReceptor">
+									<?php
+										while ($usuario = mysqli_fetch_array($usuarios)) {
+											if ($usuario['user'] != "admin") {
+									?>
+										<option value=<?php echo $usuario['user']; ?>><?php echo $usuario['user']; ?></option>
+									<?php }} ?>
+								</select>
+								<BR>
 								<textarea type="text" maxlength="150" placeholder="Responsable de la respuesta" rows="5" cols="45" name="responsableRpta" class="form-control"></textarea><BR>
 								<textarea type="text" maxlength="150" placeholder="Destino para respuesta del documento" rows="5" cols="45" name="destinoRpta" class="form-control"></textarea><BR>
 								<textarea type="text" maxlength="150" placeholder="Nombre del mensajero que recibe" rows="5" cols="45" name="nombreMensajero" class="form-control"></textarea><BR>

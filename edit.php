@@ -85,9 +85,8 @@
 								</textarea><BR>
 
 								<h3 class="title-font">Nombre de quien recibe</h3>
-								<textarea type="text" maxlength="150" placeholder="Nombre de quien recibe" rows="5" cols="45" name="nombreReceptor" class="form-control">
-									<?php echo $doc['nombreReceptor'];?>
-								</textarea><BR>
+									<h4 class="title-font"><?php echo $doc['nombreReceptor'];?></h4>
+								<BR>
 
 								<h3 class="title-font">Responsable de la respuesta</h3>
 								<textarea type="text" maxlength="150" placeholder="Responsable de la respuesta" rows="5" cols="45" name="responsableRpta" class="form-control">

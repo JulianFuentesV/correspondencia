@@ -11,10 +11,12 @@
 
 	$meses = array("cero","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
+	$mes = $_REQUEST['mes'];
+	$anio = $_REQUEST['anio'];
 	$desde = $_REQUEST['fechaDesde'];
 	$hasta = $_REQUEST['fechaHasta'];
 
-	$diaDesde = substr($desde, 8, 2);
+	/*$diaDesde = substr($desde, 8, 2);
 	$mesDesde = substr($desde, 5, 1)=='0'?substr($desde, 6, 1):substr($desde, 5, 2);
 	$anioDesde = substr($desde, 0, 4);
 	$fechaDesde = $diaDesde." - ".$mesDesde." - ".$anioDesde;
@@ -22,25 +24,25 @@
 	$diaHasta = substr($hasta, 8, 2);
 	$mesHasta = substr($hasta, 5, 1)=='0'?substr($hasta, 6, 1):substr($hasta, 5, 2);
 	$anioHasta = substr($hasta, 0, 4);
-	$fechaHasta = $diaHasta." - ".$mesHasta." - ".$anioHasta;
+	$fechaHasta = $diaHasta." - ".$mesHasta." - ".$anioHasta;*/
 
 	$con = mysqli_connect($host, $user, $pw, $db);
 	$con->set_charset("utf8");
 
-	$first = mysqli_query($con, "SELECT * FROM documents WHERE dia = '$diaDesde' AND mes = '$mesDesde' AND anio = '$anioDesde' ORDER BY id DESC");
+	/*$first = mysqli_query($con, "SELECT * FROM documents WHERE dia = '$diaDesde' AND mes = '$mesDesde' AND anio = '$anioDesde' ORDER BY id DESC");
 	$last = mysqli_query($con, "SELECT * FROM documents WHERE dia = '$diaHasta' AND mes = '$mesHasta' AND anio = '$anioHasta' ORDER BY id ASC");
 
 	while ($p = mysqli_fetch_array($first)) 
 	{ $primero = $p['id']; }
 
 	while ($l = mysqli_fetch_array($last)) 
-	{ $ultimo = $l['id']; }
+	{ $ultimo = $l['id']; }*/
 
 	/*echo "first: ".$primero."<BR>";
 	echo "last: ".$ultimo."<BR>";
 	echo "SELECT * FROM documents WHERE id BETWEEN '$primero' AND '$ultimo'";*/
 
-	$documents = mysqli_query($con, "SELECT * FROM documents WHERE id BETWEEN '$primero' AND '$ultimo'") or die ("prob_query: ");
+	$documents = mysqli_query($con, "SELECT * FROM documents WHERE anio = '$anio' AND mes = '$mes' AND dia BETWEEN '$desde' AND '$hasta'") or die ("prob_query: ");
 
 	while ($doc = mysqli_fetch_array($documents)) 
 	{

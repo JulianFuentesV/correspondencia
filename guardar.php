@@ -16,6 +16,8 @@
 	$destinoRpta = $_REQUEST['destinoRpta'];
 	$nombreMensajero = $_REQUEST['nombreMensajero'];
 
+	//echo "nombreReceptor: ".$nombreReceptor;
+
 	include("conexion.php");
 
 	$con = mysqli_connect ($host, $user, $pw, $db) or die ("Pro_server");

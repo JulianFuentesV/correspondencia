@@ -36,11 +36,38 @@
 						<div id="white-container">
 							<h2 class="text-center title-font blue-font">IMPRIMIR REPORTES</h2><hr>
 							<form method="POST" action="imprimir.php">
-								<h3 class="title-font blue-font"> Imprimir desde:</h3>
-								<input type="date" name="fechaDesde" class="form-control" placeholder="aaaa/mm/dd"></input>
 
-								<h3 class="title-font blue-font">Imprimir hasta:</h3>
-								<input type="date" name="fechaHasta" class="form-control" placeholder="aaaa/mm/dd"></input>
+								<table>
+									<tr>
+										<td><h3 class="title-font blue-font text-center"> Mes:</h3></td>
+										<td><h3 class="title-font blue-font text-center"> Año:</h3></td>
+									</tr>
+									<tr>
+										<td>
+											<select name="mes" class="form-control">
+												<option value="1">Enero</option>
+												<option value="2">Febrero</option>
+												<option value="3">Marzo</option>
+												<option value="4">Abril</option>
+												<option value="5">Mayo</option>
+												<option value="6">Junio</option>
+												<option value="7">Julio</option>
+												<option value="8">Agosto</option>
+												<option value="9">Septiembre</option>
+												<option value="10">Octubre</option>
+												<option value="11">Noviembre</option>
+												<option value="12">Diciembre</option>
+											</select>
+										</td>
+										<td><input type="number" name="anio" min="2000" max="2050" class="form-control" /></td>
+									</tr>
+								</table>
+
+								<h3 class="title-font blue-font"> Imprimir desde el día:</h3>
+								<input type="number" name="fechaDesde" class="form-control" min="1" max="31"></input>
+
+								<h3 class="title-font blue-font">Imprimir hasta el día:</h3>
+								<input type="number" name="fechaHasta" class="form-control" min="1" max="31"></input>
 
 								<br>
 								<input type="submit" class="btn btn-default blue-font" value="Imprimir"></input>
