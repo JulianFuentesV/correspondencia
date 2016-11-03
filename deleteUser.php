@@ -12,6 +12,6 @@
 	include ("conexion.php");
 	$con = mysqli_connect($host, $user, $pw, $db);
 	$con->set_charset("utf8");
-	$usuario = mysqli_query($con, "DELETE FROM usuarios WHERE id = '$idUser'") or die ("prob_query: ");
+	$usuario = mysqli_query($con, "DELETE FROM usuarios WHERE id = '$idUser'") or die ("prob_query: ".$idUser." ".mysqli_error());
 	header("Location: administrator.php");
 ?>

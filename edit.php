@@ -64,9 +64,7 @@
 								<input type="text" maxlength="20" placeholder="N° de ventanilla única" size="32" name="ventanillaUnica" class="form-control" value=<?php echo $doc['ventanillaUnica'];?>></input><BR>
 
 								<h3 class="title-font">Nombre del remitente</h3>
-								<textarea type="text" maxlength="150" placeholder="Nombre del remitente" rows="5" cols="45" name="nombreRemitente" class="form-control">
-									<?php echo htmlentities($doc['nombreRemitente']);?>
-								</textarea><BR>
+								<textarea type="text" maxlength="150" placeholder="Nombre del remitente" rows="5" cols="45" name="nombreRemitente" class="form-control"><?php echo trim($doc['nombreRemitente']);?></textarea><BR>
 
 								<h3 class="title-font">N° de oficio</h3>
 								<input type="text" maxlength="30" placeholder="N° de oficio" size="40" name="numOficio" class="form-control" value=<?php echo $doc['numOficio'];?>></input><BR>
@@ -75,33 +73,23 @@
 								<input type="text" maxlength="5" placeholder="N° de anexos" name="numAnexos" class="form-control" value=<?php echo $doc['numAnexos'];?>></input><BR>
 
 								<h3 class="title-font">Asunto</h3>
-								<textarea type="text" maxlength="300" placeholder="Asunto" rows="8" cols="60" name="asunto" class="form-control">
-									<?php echo $doc['asunto'];?>
-								</textarea><BR>
+								<textarea type="text" maxlength="300" placeholder="Asunto" rows="8" cols="60" name="asunto" class="form-control"><?php echo $doc['asunto'];?></textarea><BR>
 
 								<h3 class="title-font">Area de destino</h3>
-								<textarea type="text" maxlength="200" placeholder="Area de destino" rows="6" cols="50" name="areaDestino" class="form-control">
-									<?php echo $doc['areaDestino'];?>
-								</textarea><BR>
+								<textarea type="text" maxlength="200" placeholder="Area de destino" rows="6" cols="50" name="areaDestino" class="form-control"><?php echo $doc['areaDestino'];?></textarea><BR>
 
 								<h3 class="title-font">Nombre de quien recibe</h3>
-									<h4 class="title-font"><?php echo $doc['nombreReceptor'];?></h4>
+								<h4 class="title-font"><?php echo $doc['nombreReceptor'];?></h4>
 								<BR>
 
 								<h3 class="title-font">Responsable de la respuesta</h3>
-								<textarea type="text" maxlength="150" placeholder="Responsable de la respuesta" rows="5" cols="45" name="responsableRpta" class="form-control">
-									<?php echo $doc['responsableRpta'];?>
-								</textarea><BR>
+								<textarea type="text" maxlength="150" placeholder="Responsable de la respuesta" rows="5" cols="45" name="responsableRpta" class="form-control"><?php echo $doc['responsableRpta'];?></textarea><BR>
 
 								<h3 class="title-font">Destino para respuesta del documento</h3>
-								<textarea type="text" maxlength="150" placeholder="Destino para respuesta del documento" rows="5" cols="45" name="destinoRpta" class="form-control">
-									<?php echo $doc['destinoRpta'];?>
-								</textarea><BR>
+								<textarea type="text" maxlength="150" placeholder="Destino para respuesta del documento" rows="5" cols="45" name="destinoRpta" class="form-control"><?php echo $doc['destinoRpta'];?></textarea><BR>
 
 								<h3 class="title-font">Nombre del mensajero que recibe</h3>
-								<textarea type="text" maxlength="150" placeholder="Nombre del mensajero que recibe" rows="5" cols="45" name="nombreMensajero" class="form-control">
-									<?php echo $doc['nombreMensajero'];?>
-								</textarea><BR>
+								<textarea type="text" maxlength="150" placeholder="Nombre del mensajero que recibe" rows="5" cols="45" name="nombreMensajero" class="form-control"><?php echo $doc['nombreMensajero'];?></textarea><BR>
 								<input type="submit" value="Guardar" class="btn btn-default blue-font"></input>
 							</form>
 								<?php } ?>

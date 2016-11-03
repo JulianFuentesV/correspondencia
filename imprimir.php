@@ -6,7 +6,7 @@
 		header("Location: login.php");
 	}
 
-	include('plugins/mpdf60/mpdf.php');
+	include('plugins/mpdf561/mpdf.php');
 	include ("conexion.php");
 
 	$meses = array("cero","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
@@ -63,7 +63,7 @@
 
 	$pdf = new mPDF('utf-8', 'A4-L');
 	$pdf->setHTMLHeader("
-		<table style='margin: 0px 0px -30px 0px;'>
+		<table style='margin: 0px 0px 0px 0px;'>
 		<tbody>
 			<tr>
 				<td><img src='imgs/unicauca.png' style='max-width: 70px; max-height: 70px; margin: 0px 30px 0px 0px;'></td>
@@ -71,8 +71,9 @@
 			</tr>
 		</tbody>
 		</table>");
+	$pdf->setAutoTopMargin;
 	$pdf->setFooter('Página: {PAGENO} de {nb}');
-	$pdf->WriteHtml($cadena);
+	$pdf->WriteHtml("<BR><BR><BR>".$cadena);
 	$pdf->Output();
 	exit;
 ?>
