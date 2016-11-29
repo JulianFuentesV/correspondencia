@@ -9,10 +9,10 @@
 	$meses = array("cero","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
 	$f = $_REQUEST['fecha'];
-	$dia = substr($f, 8, 2);
-	$mes = $meses[0 + substr($f, 5, 2)];
+	$dia = substr($f, 8);
+	$mes = substr($f, 5, 2);
 	$anio = substr($f, 0, 4);
-	$fecha = $dia." - ".$mes." - ".$anio;
+	
 	$ventanilla = $_REQUEST['ventanilla'];
 	$oficio = $_REQUEST['oficio'];
 	$nomRemitente = $_REQUEST['remitente'];
@@ -24,12 +24,10 @@
 	$con = mysqli_connect($host, $user, $pw, $db);
 	$con->set_charset("utf8");
 
-	$longFecha = strlen($f);
-
-	if ($longFecha == 0) {
+	if ($f == "") {
 		$documents = mysqli_query($con, "SELECT * FROM documents WHERE ventanillaUnica LIKE '%$ventanilla%' AND numOficio LIKE '%$oficio%' AND nombreRemitente LIKE '%$nomRemitente%' AND areaDestino LIKE '%$areaDestino%' AND nombreReceptor LIKE '%$nomReceptor%' AND nombreMensajero LIKE '%$nomMensajero%'") or die ("prob_query: ");
 	} else {
-		$documents = mysqli_query($con, "SELECT * FROM documents WHERE fechaIngreso LIKE '%$fecha%' AND ventanillaUnica LIKE '%$ventanilla%' AND numOficio LIKE '%$oficio%' AND nombreRemitente LIKE '%$nomRemitente%' AND areaDestino LIKE '%$areaDestino%' AND nombreReceptor LIKE '%$nomReceptor%' AND nombreMensajero LIKE '%$nomMensajero%'") or die ("prob_query: ");
+		$documents = mysqli_query($con, "SELECT * FROM documents WHERE dia = '$dia' AND mes = '$mes' AND anio = '$anio' AND ventanillaUnica LIKE '%$ventanilla%' AND numOficio LIKE '%$oficio%' AND nombreRemitente LIKE '%$nomRemitente%' AND areaDestino LIKE '%$areaDestino%' AND nombreReceptor LIKE '%$nomReceptor%' AND nombreMensajero LIKE '%$nomMensajero%'") or die ("prob_query: ");
 	}
 ?>
 <!DOCTYPE html>

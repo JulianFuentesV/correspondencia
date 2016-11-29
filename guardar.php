@@ -1,10 +1,22 @@
 <?php
 	header("Content-Type: text/html;charset=utf-8");
 	session_start();
+
+	$meses = array("cero","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+	$str = $_REQUEST['date'];
+	$a = substr($str, 0, 4);
+	$m = substr($str, 5, 2);
+	$d = substr($str, 8);
+	$f = $d."-".$meses[$m]."-".$a;
+	$_SESSION['fecha'] = $f;
+	$_SESSION['dia'] = $d;
+	$_SESSION['mes'] = $m;
+	$_SESSION['anio'] = $a;
+
 	$fechaIngreso = $_SESSION['fecha'];
-	$dia = $_SESSION['dia'];
-	$mes = $_SESSION['mes'];
-	$anio = $_SESSION['anio'];
+	$dia = $d;
+	$mes = $m;
+	$anio = $a;
 	$ventanillaUnica = $_REQUEST['ventanillaUnica'];
 	$nombreRemitente = $_REQUEST['nombreRemitente'];
 	$numOficio = $_REQUEST['numOficio'];

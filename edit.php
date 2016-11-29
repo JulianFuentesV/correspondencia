@@ -64,7 +64,7 @@
 								<input type="text" maxlength="20" placeholder="N° de ventanilla única" size="32" name="ventanillaUnica" class="form-control" value=<?php echo $doc['ventanillaUnica'];?>></input><BR>
 
 								<h3 class="title-font">Nombre del remitente</h3>
-								<textarea type="text" maxlength="150" placeholder="Nombre del remitente" rows="5" cols="45" name="nombreRemitente" class="form-control"><?php echo trim($doc['nombreRemitente']);?></textarea><BR>
+								<textarea type="text" maxlength="150" placeholder="Nombre del remitente" rows="5" cols="45" name="nombreRemitente" class="form-control"><?php echo $doc['nombreRemitente'];?></textarea><BR>
 
 								<h3 class="title-font">N° de oficio</h3>
 								<input type="text" maxlength="30" placeholder="N° de oficio" size="40" name="numOficio" class="form-control" value=<?php echo $doc['numOficio'];?>></input><BR>

@@ -43,16 +43,14 @@
 							<form action="guardar.php" method="POST">
 								<?php
 									$date = getdate();
-									$meses = array("cero","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-									$fecha = $date['mday']." - ".$meses[$date['mon']]." - ".$date['year'];
-									echo "Fecha de ingreso: ".$fecha."<BR>";
-									
-									$_SESSION['fecha'] = $fecha;
-									$_SESSION['dia'] = $date['mday'];
-									$_SESSION['mes'] = $date['mon'];
-									$_SESSION['anio'] = $date['year'];
-
+									if ($date['mday'] < 9) {
+										$dia = "0".$date['mday'];
+									} else {
+										$dia = $date['mday'];
+									}
+									$fecha = $date['year']."-".$date['mon']."-".$dia;
 								?>
+								<input type="date" class="form-control" name="date" value=<?php echo $fecha;?>>
 								<BR>
 								<input type="text" maxlength="20" placeholder="N° de ventanilla única" size="32" name="ventanillaUnica" class="form-control"></input><BR>
 								<textarea type="text" maxlength="150" placeholder="Nombre del remitente" rows="5" cols="45" name="nombreRemitente" class="form-control"></textarea><BR>
